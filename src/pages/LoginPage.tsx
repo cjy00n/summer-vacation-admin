@@ -12,16 +12,16 @@ const LoginPage = () => {
       <div className="">
         <div className="flex justify-between my-2">
           <span>아이디</span>
-          <input className="border-solid border-gray-70 border rounded-md w-52 ml-4" />
+          <input type="text" className="rounded-md w-52 ml-4" />
         </div>
         <div className="flex justify-between my-2">
           <span>비밀번호</span>
-          <input className="border-solid border-gray-70 border rounded-md w-52 ml-4" />
+          <input type="text" className="rounded-md w-52 ml-4" />
         </div>
         <div className="flex justify-between my-2">
           <span></span>
           <button
-            className="bg-gray-50 w-52 ml-4 rounded-md"
+            className="bg-gray-50 w-52 ml-4 rounded-md py-1 text-white"
             onClick={handleLogin}
           >
             로그인

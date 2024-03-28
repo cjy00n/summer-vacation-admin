@@ -19,7 +19,7 @@ function App() {
                   <Header />
                   <div className="flex h-[92dvh]">
                     <SideBar />
-                    <div className="w-[80%] mx-auto">{el.element}</div>
+                    <div className="w-[70%] mx-auto px-10 ">{el.element}</div>
                   </div>
                 </>
               )}

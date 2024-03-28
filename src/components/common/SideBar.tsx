@@ -64,7 +64,7 @@ const SideBar = () => {
     },
   ];
   return (
-    <div className="flex flex-col w-52 bg-gray-70">
+    <div className="flex flex-col w-52 bg-gray-60">
       <div className="bg-gray-80">
         {subItems.map((item) => (
           <div key={item.link} className="w-full">
@@ -74,7 +74,7 @@ const SideBar = () => {
               haveSubItems={item.subItems !== undefined}
             />
             {item.subItems && (
-              <div className="ml-5 flex flex-col">
+              <div className="flex flex-col">
                 {item.subItems.map((subItem) => (
                   <SideBarItem
                     key={item.link + subItem.link}

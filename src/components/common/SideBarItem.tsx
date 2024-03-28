@@ -15,10 +15,15 @@ const SideBarItem = ({
   isSubItem,
 }: SideBarItemProps) => {
   return (
-    <nav className="mx-2 px-1 py-2 border-b border-gray-70 border-solid">
+    <nav
+      className={
+        "mx-2 px-1 py-2 border-b border-gray-70 border-solid " +
+        `${isSubItem ? "pl-5" : ""}`
+      }
+    >
       <NavLink
         to={to}
-        className={({ isActive }) => (isActive ? "text-orange-300" : "")}
+        className={({ isActive }) => (isActive ? "text-primary-orange" : "")}
       >
         <span
           className={`

@@ -51,5 +51,26 @@ button {
 /* 입력 및 텍스트 영역 스타일 */
 input,
 textarea {
-  @apply outline-none;
+  @apply outline-none rounded-sm;
+}
+
+input[type="text"],
+input[type="number"] {
+  @apply border-solid border-gray-70 border px-2 py-1;
+}
+
+table {
+  @apply border border-gray-30 border-solid;
+}
+
+thead > tr {
+  @apply bg-gray-60;
+}
+
+th {
+  @apply py-1 px-4 border border-solid border-gray-30;
+}
+
+td {
+  @apply text-center py-1 px-2 border border-solid border-gray-30 text-sm;
 }

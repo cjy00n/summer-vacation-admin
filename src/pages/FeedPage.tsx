@@ -1,4 +1,4 @@
 const FeedPage = () => {
-  return <div></div>;
+  return <div>피드페이지</div>;
 };
 export default FeedPage;

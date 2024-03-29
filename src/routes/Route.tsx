@@ -1,7 +1,6 @@
 import AuthorityPage from "../pages/AuthorityPage";
 import DiaryPage from "../pages/DiaryPage";
 import FeedPage from "../pages/FeedPage";
-import InquiryPage from "../pages/InQuiryPage";
 import UsersPage from "../pages/UsersPage";
 import OpenLicensePage from "../pages/etc-manage/OpenLicensePage";
 import PrivacyPolicyPage from "../pages/etc-manage/PrivacyPolicyPage";
@@ -41,11 +40,6 @@ export const ROUTE: Routes = {
     path: "/report",
     link: "/report",
     element: <UsersPage />,
-  },
-  INQUIRY_PAGE: {
-    path: "/inquiry",
-    link: "/inquiry",
-    element: <InquiryPage />,
   },
   FAQ_PAGE: {
     path: "/faq",

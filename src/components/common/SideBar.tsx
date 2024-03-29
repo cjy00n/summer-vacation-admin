@@ -29,10 +29,6 @@ const SideBar = () => {
       link: ROUTE.REPORT_PAGE.link,
     },
     {
-      title: "1:1문의",
-      link: ROUTE.INQUIRY_PAGE.link,
-    },
-    {
       title: "FAQ",
       link: ROUTE.FAQ_PAGE.link,
     },
@@ -65,7 +61,7 @@ const SideBar = () => {
   ];
   return (
     <div className="flex flex-col w-52 bg-gray-60">
-      <div className="bg-gray-80">
+      <div className="bg-primary-white">
         {subItems.map((item) => (
           <div key={item.link} className="w-full">
             <SideBarItem

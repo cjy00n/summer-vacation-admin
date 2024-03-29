@@ -6,4 +6,6 @@ export default interface Diary {
   reportNum: number;
   contents: string;
   date: Date;
+  image: string;
+  title: string;
 }

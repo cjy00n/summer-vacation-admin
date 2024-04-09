@@ -41,7 +41,7 @@ const DiariesResult = ({ Diaries }: DiariesResultProps) => {
               <td>{diary.warning ? "O" : "X"}</td>
               <td>{diary.reportNum}</td>
               <td>
-                <div className="truncate w-52 px-1">{diary.contents}</div>
+                <div className="truncate w-[20vw] px-1">{diary.contents}</div>
               </td>
               <td>
                 {format(diary.date, "yyyy. MM. dd", {

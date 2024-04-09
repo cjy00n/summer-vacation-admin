@@ -16,7 +16,7 @@ const ReportResult = ({ reports }: ReportResultProps) => {
 
   return (
     <div className="w-full flex flex-col">
-      <table>
+      <table className="table-fixed">
         <thead>
           <tr>
             <th>#</th>
@@ -41,7 +41,7 @@ const ReportResult = ({ reports }: ReportResultProps) => {
               <td>{report.reportNum}</td>
               <td>{report.feedId}</td>
               <td>
-                <div className="truncate w-[12vw] px-[1vw] text-center">
+                <div className="truncate w-[15vw] px-[1vw] text-center">
                   {report.reason}
                 </div>
               </td>

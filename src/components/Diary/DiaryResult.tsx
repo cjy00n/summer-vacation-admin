@@ -15,7 +15,7 @@ const DiariesResult = ({ Diaries }: DiariesResultProps) => {
   };
 
   return (
-    <div className="w-[90%] flex flex-col">
+    <div className="w-full flex flex-col">
       <table className="table-fixed">
         <thead>
           <tr>

@@ -15,7 +15,7 @@ const UsersResult = ({ users }: UsersResultProps) => {
   };
 
   return (
-    <div className="w-[80%] flex flex-col">
+    <div className="w-full flex flex-col">
       <table>
         <thead>
           <tr>

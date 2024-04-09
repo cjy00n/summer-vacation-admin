@@ -2,7 +2,7 @@ import ArrowIcon from "../assets/icons/ArrowIcon";
 import BannerSection from "../components/Feed/BannerSection";
 import ContestList from "../components/Feed/ContestList";
 import MainTitle from "../components/common/MainTitle";
-import TextLabel from "../components/common/TextLabel";
+import SubTitle from "../components/common/SubTitle";
 import { useGetContest } from "../hooks/getContest";
 
 const FeedPage = () => {
@@ -15,13 +15,13 @@ const FeedPage = () => {
   return (
     <div className="flex flex-col">
       <MainTitle title="홈" />
-      <TextLabel text="배너" />
-      <TextLabel text="이미지 업로드" />
+      <SubTitle title="배너" />
+      <SubTitle title="이미지 업로드" />
 
       <BannerSection />
-      <TextLabel text="피드" />
+      <MainTitle title="피드" />
       <div className="flex items-center">
-        <TextLabel text="사생대회" />
+        <SubTitle title="사생대회" />
         <div className="flex gap-2 mx-8">
           <button className="border border-gray-80 border-solid py-1 w-28 flex justify-center gap-2 items-center px-2">
             2024년 <ArrowIcon />
@@ -35,7 +35,7 @@ const FeedPage = () => {
           <button className="bg-black text-white rounded-md px-6">검색</button>
         </div>
       </div>
-      <TextLabel text="수상목록" />
+      <MainTitle title="수상목록" />
       {contestList && <ContestList contestList={contestList} />}
     </div>
   );

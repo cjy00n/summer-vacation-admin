@@ -19,7 +19,7 @@ const BannerSection = () => {
   };
 
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3 mb-8">
       {bannerImages.map((item) => (
         <div key={item} className="flex flex-col">
           <img src={item} className="w-40 h-40 rounded-sm my-2" />

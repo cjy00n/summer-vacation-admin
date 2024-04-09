@@ -27,7 +27,7 @@ const ContestList = ({ contestList }: { contestList: Diary[] }) => {
         <div className="h-40 border-black border border-solid flex items-center justify-center text-sm">
           지정되지 않음
         </div>
-        <button className="text-white bg-black text-sm py-1 rounded-md mt-4">
+        <button className="text-black bg-white border-black border border-solid text-sm py-1 rounded-md mt-4">
           일기 선택
         </button>
       </div>

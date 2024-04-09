@@ -8,6 +8,7 @@ import TermsOfUsePage from "../pages/etc-manage/TermsOfUsePage";
 import VersionPage from "../pages/etc-manage/VersionPage";
 import FAQPage from "../pages/FAQPage";
 import LoginPage from "../pages/LoginPage";
+import ReportPage from "../pages/ReportPage";
 
 interface RouteItem {
   path: string;
@@ -39,7 +40,7 @@ export const ROUTE: Routes = {
   REPORT_PAGE: {
     path: "/report",
     link: "/report",
-    element: <UsersPage />,
+    element: <ReportPage />,
   },
   FAQ_PAGE: {
     path: "/faq",

@@ -3,7 +3,7 @@ interface MainTitle {
 }
 
 const MainTitle = ({ title }: MainTitle) => {
-  return <h1 className="font-bold py-4 text-lg">{title}</h1>;
+  return <h1 className="font-bold py-3 text-xl ">{title}</h1>;
 };
 
 export default MainTitle;

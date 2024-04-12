@@ -45,7 +45,7 @@ table {
 
 /* 버튼 스타일 */
 button {
-  @apply cursor-pointer border-none text-black;
+  @apply cursor-pointer border-none text-black hover:opacity-80;
 }
 
 /* 입력 및 텍스트 영역 스타일 */

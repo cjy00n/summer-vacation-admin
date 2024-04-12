@@ -17,7 +17,7 @@ const SideBarItem = ({
   return (
     <nav
       className={
-        "mx-2 px-1 py-[10px] border-b border-gray-80 border-solid " +
+        "mx-2 px-1 py-[10px] border-b border-gray-80 border-solid hover:opacity-70 " +
         `${isSubItem ? "pl-5" : ""}`
       }
     >

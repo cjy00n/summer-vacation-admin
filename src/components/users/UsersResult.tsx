@@ -30,24 +30,34 @@ const UsersResult = ({ users }: UsersResultProps) => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
-            <tr key={"user-list-" + user.id}>
-              <td>
-                <input type="checkbox" />
-              </td>
-              <td>{user.id}</td>
-              <td>{user.nickname}</td>
-              <td>{user.kakaoId}</td>
-              <td>{user.gender}</td>
-              <td>{user.reportNum}</td>
-              <td>{user.birth}</td>
-              <td>
-                {format(user.signUpDate, "yyyy. MM. dd", {
-                  locale: ko,
-                })}
-              </td>
-            </tr>
-          ))}
+          {users.map(
+            ({
+              user_id,
+              user_nickname,
+              user_kakaoId,
+              user_gender,
+              reportCount,
+              user_birth,
+              user_createdAt,
+            }) => (
+              <tr key={"user-list-" + user_id}>
+                <td>
+                  <input type="checkbox" />
+                </td>
+                <td>{user_id}</td>
+                <td>{user_nickname}</td>
+                <td>{user_kakaoId}</td>
+                <td>{user_gender}</td>
+                <td>{reportCount}</td>
+                <td>{user_birth}</td>
+                <td>
+                  {format(user_createdAt, "yyyy. MM. dd", {
+                    locale: ko,
+                  })}
+                </td>
+              </tr>
+            )
+          )}
         </tbody>
       </table>
       <button className="bg-gray-60 py-1 text-sm rounded-sm my-2 mx-1 w-20">

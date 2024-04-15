@@ -1,5 +1,5 @@
 import MainTitle from "../components/common/MainTitle";
-import { useGetAdmins } from "../hooks/getAdmins";
+import { useGetAdmins } from "../api/getAdmins";
 
 const AuthorityPage = () => {
   const { data: admins } = useGetAdmins();

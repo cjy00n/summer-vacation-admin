@@ -1,8 +1,8 @@
 import { useState } from "react";
 import MainTitle from "../components/common/MainTitle";
 import SubTitle from "../components/common/SubTitle";
-import { useGetFAQ } from "../hooks/getFAQ";
-import { useGetFAQCategories } from "../hooks/getFAQCategories";
+import { useGetFAQ } from "../api/getFAQ";
+import { useGetFAQCategories } from "../api/getFAQCategories";
 
 const FAQPage = () => {
   const { data: faqs } = useGetFAQ();

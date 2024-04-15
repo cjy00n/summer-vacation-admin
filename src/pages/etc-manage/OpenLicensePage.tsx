@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MainTitle from "../../components/common/MainTitle";
-import { useGetOpenLicense } from "../../hooks/getOpenLicense";
+import { useGetOpenLicense } from "../../api/getOpenLicense";
 
 const OpenLicensePage = () => {
   const { data: openLicense } = useGetOpenLicense();

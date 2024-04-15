@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { postLogin } from "../hooks/postLogin";
+import { postLogin } from "../api/postLogin";
 
 const LoginPage = () => {
   const navigate = useNavigate();

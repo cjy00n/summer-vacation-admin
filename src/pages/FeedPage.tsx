@@ -3,7 +3,7 @@ import BannerSection from "../components/Feed/BannerSection";
 import ContestList from "../components/Feed/ContestList";
 import MainTitle from "../components/common/MainTitle";
 import SubTitle from "../components/common/SubTitle";
-import { useGetContest } from "../hooks/getContest";
+import { useGetContest } from "../api/getContest";
 
 const FeedPage = () => {
   const { data: contestList } = useGetContest({

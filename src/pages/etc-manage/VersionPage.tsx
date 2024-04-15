@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import MainTitle from "../../components/common/MainTitle";
 import SubTitle from "../../components/common/SubTitle";
-import { useGetTermsOfUse } from "../../hooks/getTermsOfUse";
+import { useGetTermsOfUse } from "../../api/getTermsOfUse";
 import { ko } from "date-fns/locale";
 import CustomDropDown from "../../components/common/CustomDropDown";
 import { useEffect, useState } from "react";

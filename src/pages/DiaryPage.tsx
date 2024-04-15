@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MainTitle from "../components/common/MainTitle";
 import TextLabel from "../components/common/TextLabel";
-import { useGetDiaries } from "../hooks/getDiaries";
+import { useGetDiaries } from "../api/getDiaries";
 import DiariesResult from "../components/Diary/DiaryResult";
 import ReportCountSelect from "../components/common/ReportCountSelect";
 import WarningOXSelect from "../components/common/WarningOXSelect";

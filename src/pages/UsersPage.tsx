@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGetAllUsers } from "../hooks/getAllUsers";
+import { useGetAllUsers } from "../api/getAllUsers";
 import MainTitle from "../components/common/MainTitle";
 import TextLabel from "../components/common/TextLabel";
 import GenderSelect from "../components/users/GenderSelect";
@@ -8,7 +8,7 @@ import UsersResult from "../components/users/UsersResult";
 import UserSearchQuery from "../types/UserSearchQuery";
 import ReactDatePicker from "react-datepicker";
 import { ko } from "date-fns/locale";
-import { useGetUsersByQuery } from "../hooks/getUsersByQuery";
+import { useGetUsersByQuery } from "../api/getUsersByQuery";
 
 const UsersPage = () => {
   const defaultUserSearchQuery: UserSearchQuery = {

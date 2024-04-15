@@ -9,15 +9,9 @@ interface LoginResponse {
 interface postLoginProps {
   email: string;
   password: string;
-  navigate: (path: string) => void;
 }
 
-export const postLogin = async ({
-  email,
-  password,
-  navigate,
-}: postLoginProps) => {
-  console.log(email, password);
+export const postLogin = async ({ email, password }: postLoginProps) => {
   try {
     const response = await defaultInstance.post<LoginResponse>(
       "/admin/sign-in",
@@ -27,13 +21,14 @@ export const postLogin = async ({
       }
     );
 
-    console.log("response", response);
     if (response.data) {
       localStorage.setItem("accessToken", response.data.accessToken);
       localStorage.setItem("refreshToken", response.data.refreshToken);
-      navigate("/");
+
+      return response.data;
     }
   } catch (e) {
     console.error("Error", e);
+    throw e;
   }
 };

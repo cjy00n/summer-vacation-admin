@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { ROUTE, ROUTE_ARR } from "./routes/Route";
 import SideBar from "./components/common/SideBar";
 import "./App.css";
+import "react-datepicker/dist/react-datepicker.css";
 import Header from "./components/common/Header";
 
 function App() {

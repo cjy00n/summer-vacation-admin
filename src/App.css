@@ -74,3 +74,8 @@ th {
 td {
   @apply text-center py-1 px-2 border border-solid border-gray-30 text-sm;
 }
+
+/* react-date-picker styling */
+.react-datepicker__input-container input {
+  @apply w-[15vw];
+}

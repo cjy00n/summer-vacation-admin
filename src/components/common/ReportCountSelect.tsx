@@ -17,8 +17,7 @@ const ReportCountSelect = ({
   };
 
   return (
-    <div className="flex items-center justify-between">
-      <input type="number" className="w-[6vw] h-8 " />
+    <div>
       <div className="relative flex flex-col">
         <button
           onClick={toggleReportUnitOpen}
@@ -49,7 +48,6 @@ const ReportCountSelect = ({
           </div>
         )}
       </div>
-      <span className="text-center w-[1vw] text-sm">회</span>
     </div>
   );
 };

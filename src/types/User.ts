@@ -1,9 +1,9 @@
 export default interface User {
-  id: string;
-  nickname: string;
-  kakaoId: string;
-  reportNum: number;
-  gender: "남자" | "여자";
-  birth: number;
-  signUpDate: Date;
+  user_id: string;
+  user_nickname: string;
+  user_kakaoId: string;
+  user_gender: "남자" | "여자";
+  user_birth: number;
+  user_createdAt: Date;
+  reportCount: number;
 }

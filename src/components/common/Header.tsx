@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "../../routes/Route";
 import LogoutIcon from "../../assets/icons/LogoutIcon";
+import { useToast } from "../../hooks/useToast";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { addToast } = useToast();
 
   const handleLogout = () => {
     navigate(ROUTE.LOGIN_PAGE.link);
+    addToast({ type: "default", content: "로그아웃 되었습니다." });
   };
 
   return (

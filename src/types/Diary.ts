@@ -6,14 +6,13 @@ export default interface Diary {
   title: string;
   contents: string;
   date: Date;
-  emotion: Emotion;
-  weather: Weather;
-  isPublic: 0 | 1;
+  emotion?: Emotion;
+  weather?: Weather;
+  isPublic?: 0 | 1;
   imageUrl: string;
-  createdAt: Date;
+  createdAt?: Date;
   nickname: string;
   kakaoId: string;
   warning: boolean;
   reportNum: number;
-  image: string;
 }

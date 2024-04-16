@@ -10,7 +10,7 @@ const ContestList = ({ contestList }: { contestList: Diary[] }) => {
           key={"contest-" + item.id}
         >
           <div>
-            <img className="h-40 mb-1" src={item.image} />
+            <img className="h-40 mb-1" src={item.imageUrl} />
             <p className="text-sm font-semibold">
               {format(item.date, "yyyy년 MM월 dd일")}
             </p>

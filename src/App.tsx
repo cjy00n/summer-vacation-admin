@@ -13,7 +13,7 @@ function App() {
         <Route
           path={el.path}
           element={
-            <div className="flex-col">
+            <div className="flex-col overflow-y-hidden">
               <ToastMessageContainer />
               {el.haveHeader === false && el.haveSideBar === false ? (
                 <div className="w-full h-dvh">{el.element}</div>
@@ -22,7 +22,7 @@ function App() {
                   <Header />
                   <div className="flex h-[92dvh]">
                     <SideBar />
-                    <div className="w-[calc(100%-13rem)] mx-auto py-6 overflow-y-auto px-[7vw]">
+                    <div className="w-[calc(100%-15vw)] mx-auto py-6 overflow-y-auto px-[7vw]">
                       {el.element}
                     </div>
                   </div>

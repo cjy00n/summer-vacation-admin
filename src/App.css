@@ -64,6 +64,11 @@ input[type="number"]:focus {
   @apply border-primary-blue;
 }
 
+input[type="radio"]:hover,
+input[type="radio"]:hover + label {
+  @apply cursor-pointer opacity-80;
+}
+
 table {
   @apply border border-gray-30 border-solid;
 }

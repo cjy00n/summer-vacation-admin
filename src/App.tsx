@@ -24,7 +24,7 @@ function App() {
                     <Header />
                     <div className="flex h-[92dvh]">
                       <SideBar />
-                      <div className="w-[75%] mx-auto px-12 py-6">
+                      <div className="w-[85vw] mx-auto py-6 overflow-y-auto px-[7vw]">
                         {el.element}
                       </div>
                     </div>

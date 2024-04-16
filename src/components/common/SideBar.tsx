@@ -60,7 +60,7 @@ const SideBar = () => {
     },
   ];
   return (
-    <div className="flex flex-col w-52 bg-gray-60">
+    <div className="flex flex-col w-[15vw] bg-gray-60">
       <div className="bg-primary-white">
         {subItems.map((item) => (
           <div key={item.link} className="w-full">

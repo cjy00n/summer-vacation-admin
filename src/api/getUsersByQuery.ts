@@ -9,11 +9,11 @@ export const getUsersByQuery = async ({
   gender,
   reportNum,
   reportUnit,
-  // birthStart,
-  // birthEnd,
-  signUpDateStart,
-  signUpDateEnd,
-}: UserSearchQuery) => {
+  birthStart,
+  birthEnd,
+}: // signUpDateStart,
+// signUpDateEnd,
+UserSearchQuery) => {
   const reportField =
     reportUnit === "동일"
       ? "Equle"
@@ -23,7 +23,11 @@ export const getUsersByQuery = async ({
 
   try {
     const response = await authInstance.get<{ data: User[] }>(
-      `user?start=${signUpDateStart}&end=${signUpDateEnd}&gender=${gender}&nickname=${nickname}&kakaoId=${kakaoId}&waring=${reportNum}&filed=${reportField}`
+      `user/findByQueries?${birthStart ? `start=${birthStart}` : ""}${
+        birthEnd ? `&end=${birthEnd}` : ""
+      }&gender=${gender}${nickname ? `&nickname=${nickname}` : ""}${
+        kakaoId ? `&kakaoId=${kakaoId}` : ""
+      }&waring=${reportNum}&filed=${reportField}`
     );
 
     if (response.data.data) {

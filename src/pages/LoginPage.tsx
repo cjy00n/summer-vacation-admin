@@ -21,7 +21,7 @@ const LoginPage = () => {
       }
     } catch (e) {
       addToast({
-        content: "관리자 정보가 일치하지 않습니다.",
+        content: "회원정보가 일치하지 않습니다.",
         type: "error",
       });
     }

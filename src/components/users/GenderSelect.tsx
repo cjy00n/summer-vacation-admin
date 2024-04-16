@@ -1,11 +1,13 @@
+import { Gender } from "../../types/User";
+
 interface GenderSelectProps {
-  gender: "전체" | "남성" | "여성";
-  setGender: (gender: "전체" | "남성" | "여성") => void;
+  gender: Gender;
+  setGender: (gender: Gender) => void;
 }
 
 const GenderSelect = ({ gender, setGender }: GenderSelectProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setGender(event.target.value as "전체" | "남성" | "여성");
+    setGender(event.target.value as Gender);
   };
 
   return (
@@ -26,10 +28,10 @@ const GenderSelect = ({ gender, setGender }: GenderSelectProps) => {
         <input
           id="gender-man"
           type="radio"
-          value={"남성"}
-          name="남성"
+          value={"남자"}
+          name="남자"
           className="mx-1"
-          checked={gender === "남성"}
+          checked={gender === "남자"}
           onChange={handleChange}
         />
         <label htmlFor="gender-man">남</label>
@@ -38,10 +40,10 @@ const GenderSelect = ({ gender, setGender }: GenderSelectProps) => {
         <input
           id="gender-woman"
           type="radio"
-          value={"여성"}
-          name="여성"
+          value={"여자"}
+          name="여자"
           className="mx-1"
-          checked={gender === "여성"}
+          checked={gender === "여자"}
           onChange={handleChange}
         />
         <label htmlFor="gender-woman">여</label>

@@ -6,9 +6,8 @@ import GenderSelect from "../components/users/GenderSelect";
 import ReportCountSelect from "../components/common/ReportCountSelect";
 import UsersResult from "../components/users/UsersResult";
 import UserSearchQuery from "../types/UserSearchQuery";
-import ReactDatePicker from "react-datepicker";
-import { ko } from "date-fns/locale";
 import { useGetUsersByQuery } from "../api/getUsersByQuery";
+import DatePicker from "../components/common/DatePicker";
 
 const UsersPage = () => {
   const defaultUserSearchQuery: UserSearchQuery = {
@@ -119,40 +118,30 @@ const UsersPage = () => {
           <div className="flex flex-col w-[32vw] ">
             <TextLabel text="출생년도" />
             <div className="flex items-center justify-between">
-              <ReactDatePicker
-                locale={ko}
+              <DatePicker
+                type="year"
                 selected={userSearchQuery.birthStart}
                 onChange={(date) => updateUserSearchField("birthStart", date)}
-                showYearPicker
-                dateFormat="yyyy"
-                yearItemNumber={10}
               />
               <span>-</span>
-              <ReactDatePicker
-                locale={ko}
+              <DatePicker
+                type="year"
                 selected={userSearchQuery.birthEnd}
                 onChange={(date) => updateUserSearchField("birthEnd", date)}
-                showYearPicker
-                dateFormat="yyyy"
-                yearItemNumber={10}
               />
             </div>
           </div>
           <div className="flex flex-col w-[32vw]">
             <TextLabel text="가입일" />
             <div className="flex items-center justify-between">
-              <ReactDatePicker
-                locale={ko}
-                dateFormat={"yyyy-MM-dd"}
+              <DatePicker
                 selected={userSearchQuery.signUpDateStart}
                 onChange={(date) =>
                   updateUserSearchField("signUpDateStart", date)
                 }
               />
               <span>-</span>
-              <ReactDatePicker
-                locale={ko}
-                dateFormat={"yyyy-MM-dd"}
+              <DatePicker
                 selected={userSearchQuery.signUpDateEnd}
                 onChange={(date) =>
                   updateUserSearchField("signUpDateEnd", date)

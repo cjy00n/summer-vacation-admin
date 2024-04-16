@@ -1,15 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "../../routes/Route";
-import LogoutIcon from "../../assets/icons/LogoutIcon";
 import { useToast } from "../../hooks/useToast";
+import { useSetRecoilState } from "recoil";
+import { isLoggedInState } from "../../recoil/atom/isLoggedInState";
+import LogoutIcon from "../../assets/icons/LogoutIcon";
 
 const Header = () => {
   const navigate = useNavigate();
+  const setLoginStatus = useSetRecoilState(isLoggedInState);
   const { addToast } = useToast();
 
+  /* 로그아웃시 로컬스토리지의 액세스 토큰 & 리프레시 토큰 삭제 후 로그인 페이지로 이동 */
   const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+
     navigate(ROUTE.LOGIN_PAGE.link);
-    addToast({ type: "default", content: "로그아웃 되었습니다." });
+    setLoginStatus(false);
+    addToast({ content: "로그아웃 되었습니다." });
   };
 
   return (

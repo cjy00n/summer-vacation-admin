@@ -59,8 +59,7 @@ input[type="number"] {
   @apply border-solid border-gray-70 border px-2 py-1;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus {
+input:focus {
   @apply border-primary-blue;
 }
 

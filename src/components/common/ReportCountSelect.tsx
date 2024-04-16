@@ -1,5 +1,7 @@
 interface ReportCountSelectProps {
   toggleReportUnitOpen: () => void;
+  reportNum: number;
+  setReportNum: (reportNum: number) => void;
   reportUnit: "이상" | "이하" | "동일";
   isReportUnitOpen: boolean;
   setReportUnit: (reportUnit: "이상" | "이하" | "동일") => void;
@@ -7,6 +9,8 @@ interface ReportCountSelectProps {
 
 const ReportCountSelect = ({
   toggleReportUnitOpen,
+  reportNum,
+  setReportNum,
   reportUnit,
   isReportUnitOpen,
   setReportUnit,
@@ -17,16 +21,22 @@ const ReportCountSelect = ({
   };
 
   return (
-    <div>
+    <div className="flex items-center justify-between">
+      <input
+        type="number"
+        className="w-short h-8 "
+        value={reportNum}
+        onChange={(e) => setReportNum(parseInt(e.target.value))}
+      />
       <div className="relative flex flex-col">
         <button
           onClick={toggleReportUnitOpen}
-          className="border-solid border-gray-70 border h-8 w-[6vw]"
+          className="border-solid border-gray-70 border h-8 w-short"
         >
           {reportUnit} ▼
         </button>
         {isReportUnitOpen && (
-          <div className="flex absolute flex-col z-10 mt-8 w-[6vw]">
+          <div className="flex absolute flex-col z-10 mt-8 w-short">
             <button
               onClick={() => selectReportUnit("이상")}
               className="bg-gray-80 border-solid border-gray-70 border h-8 border-t-0"
@@ -48,6 +58,7 @@ const ReportCountSelect = ({
           </div>
         )}
       </div>
+      <span className="text-center w-[1vw] text-sm">회</span>
     </div>
   );
 };

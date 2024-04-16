@@ -14,13 +14,15 @@ interface RouteItem {
   path: string;
   link: string;
   element: JSX.Element;
-  haveHeader?: boolean;
-  haveSideBar?: boolean;
+  authRequired?: boolean; // 어드민 인증 필요 유무
+  haveHeader?: boolean; // 헤더 유무
+  haveSideBar?: boolean; // 사이드바 유무
 }
 
 interface Routes {
   [key: string]: RouteItem;
 }
+
 export const ROUTE: Routes = {
   USERS_PAGE: {
     path: "/users",
@@ -75,6 +77,7 @@ export const ROUTE: Routes = {
   LOGIN_PAGE: {
     path: "/login",
     link: "/login",
+    authRequired: false,
     haveHeader: false,
     haveSideBar: false,
     element: <LoginPage />,

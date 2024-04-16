@@ -1,10 +1,12 @@
+import { ReportUnit } from "../../types/Report";
+
 interface ReportCountSelectProps {
   toggleReportUnitOpen: () => void;
   reportNum: number;
   setReportNum: (reportNum: number) => void;
-  reportUnit: "이상" | "이하" | "동일";
+  reportUnit: ReportUnit;
   isReportUnitOpen: boolean;
-  setReportUnit: (reportUnit: "이상" | "이하" | "동일") => void;
+  setReportUnit: (reportUnit: ReportUnit) => void;
 }
 
 const ReportCountSelect = ({
@@ -15,7 +17,7 @@ const ReportCountSelect = ({
   isReportUnitOpen,
   setReportUnit,
 }: ReportCountSelectProps) => {
-  const selectReportUnit = (reportUnit: "이상" | "이하" | "동일") => {
+  const selectReportUnit = (reportUnit: ReportUnit) => {
     toggleReportUnitOpen();
     setReportUnit(reportUnit);
   };

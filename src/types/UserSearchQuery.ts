@@ -1,9 +1,12 @@
+import { ReportUnit } from "./Report";
+import { Gender } from "./User";
+
 export default interface UserSearchQuery {
   nickname: string;
   kakaoId: string;
-  gender: "전체" | "남자" | "여자";
+  gender: Gender;
   reportNum: number;
-  reportUnit: "이상" | "이하" | "동일";
+  reportUnit: ReportUnit;
   birthStart: Date | null;
   birthEnd: Date | null;
   signUpDateStart: Date | null;

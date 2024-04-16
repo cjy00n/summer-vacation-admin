@@ -8,8 +8,10 @@ import UsersResult from "../components/users/UsersResult";
 import UserSearchQuery from "../types/UserSearchQuery";
 import { useGetUsersByQuery } from "../api/getUsersByQuery";
 import DatePicker from "../components/common/DatePicker";
+import Warning from "../components/Warning";
 
 const UsersPage = () => {
+  /* 유저 검색 쿼리 기본값 */
   const defaultUserSearchQuery: UserSearchQuery = {
     nickname: "",
     kakaoId: "",
@@ -22,14 +24,17 @@ const UsersPage = () => {
     signUpDateEnd: new Date(),
   };
 
+  /* 유저 검색 쿼리 state */
   const [userSearchQuery, setUserSearchQuery] = useState<UserSearchQuery>(
     defaultUserSearchQuery
   );
 
+  /* 유저 검색 쿼리 기본으로 초기화 */
   const resetUserSearchQuery = () => {
     setUserSearchQuery(defaultUserSearchQuery);
   };
 
+  /* 유저 검색 쿼리 필드 업데이트 함수 */
   const updateUserSearchField = <K extends keyof UserSearchQuery>(
     field: K,
     value: UserSearchQuery[K]
@@ -37,6 +42,7 @@ const UsersPage = () => {
     setUserSearchQuery({ ...userSearchQuery, [field]: value });
   };
 
+  /* 신고횟수 선택 모달 오픈여부 state */
   const [isReportUnitOpen, setIsReportUnitOpen] = useState(false);
   const { data: usersResult } = useGetAllUsers();
   const { data: usersResultByQuery, refetch } =
@@ -158,7 +164,11 @@ const UsersPage = () => {
             </div>
           </div>
         </div>
-        {usersResult && <UsersResult users={usersResult} />}
+        {usersResult ? (
+          <UsersResult users={usersResult} />
+        ) : (
+          <Warning content="회원 목록이 존재하지 않습니다." />
+        )}
       </div>
     </div>
   );

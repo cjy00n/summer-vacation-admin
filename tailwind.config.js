@@ -14,7 +14,7 @@ export default {
         "primary-white": "#F6F6F6",
         "primary-yellow": "#FFCE3C",
         "primary-green": "#27BE69",
-        "primary-blue": "0091FF",
+        "primary-blue": "#0091FF",
         "error-red": "#DF0020",
         "gray-90": "#FDF8F4",
         "gray-80": "#E8E3E0",

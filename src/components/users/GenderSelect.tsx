@@ -6,13 +6,13 @@ interface GenderSelectProps {
 }
 
 const GenderSelect = ({ gender, setGender }: GenderSelectProps) => {
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleGender = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGender(event.target.value as Gender);
   };
 
   return (
-    <form className="flex gap-4 h-8 items-center w-[15vw]">
-      <div className="w-[5vw]">
+    <form className="flex gap-4 h-8 items-center w-middle">
+      <div className="w-short">
         <input
           id="gender-all"
           type="radio"
@@ -20,11 +20,11 @@ const GenderSelect = ({ gender, setGender }: GenderSelectProps) => {
           name="전체"
           className="mx-1"
           checked={gender === "전체"}
-          onChange={handleChange}
+          onChange={handleGender}
         />
         <label htmlFor="gender-all">전체</label>
       </div>
-      <div className="w-[5vw]">
+      <div className="w-short">
         <input
           id="gender-man"
           type="radio"
@@ -32,11 +32,11 @@ const GenderSelect = ({ gender, setGender }: GenderSelectProps) => {
           name="남자"
           className="mx-1"
           checked={gender === "남자"}
-          onChange={handleChange}
+          onChange={handleGender}
         />
         <label htmlFor="gender-man">남</label>
       </div>
-      <div className="w-[5vw]">
+      <div className="w-short">
         <input
           id="gender-woman"
           type="radio"
@@ -44,7 +44,7 @@ const GenderSelect = ({ gender, setGender }: GenderSelectProps) => {
           name="여자"
           className="mx-1"
           checked={gender === "여자"}
-          onChange={handleChange}
+          onChange={handleGender}
         />
         <label htmlFor="gender-woman">여</label>
       </div>

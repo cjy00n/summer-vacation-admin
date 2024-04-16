@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import PlusIcon from "../../assets/icons/PlusIcon";
+import PlusIcon from "../../../assets/icons/PlusIcon";
 
 interface SideBarItemProps {
   to: string;

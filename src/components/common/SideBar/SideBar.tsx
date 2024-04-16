@@ -1,4 +1,4 @@
-import { ROUTE } from "../../routes/Route";
+import { ROUTE } from "../../../routes/Route";
 import SideBarItem from "./SideBarItem";
 
 interface SideBarItemType {

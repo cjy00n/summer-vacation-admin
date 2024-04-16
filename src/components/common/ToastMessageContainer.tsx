@@ -6,7 +6,7 @@ const ToastMessageContainer = () => {
   const toasts = useRecoilValue(toastMessageState);
 
   return (
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10">
+    <div className="fixed top-0 left-1/2 -translate-x-1/2 z-10">
       {toasts &&
         toasts.map(({ content, type }, idx) => (
           <ToastMessageItem content={content} type={type} key={"toast" + idx} />

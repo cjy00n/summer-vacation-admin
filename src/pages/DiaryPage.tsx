@@ -1,14 +1,16 @@
 import { useState } from "react";
+import { useGetDiaries } from "../api/getDiaries";
 import MainTitle from "../components/common/MainTitle";
 import TextLabel from "../components/common/TextLabel";
-import { useGetDiaries } from "../api/getDiaries";
 import DiariesResult from "../components/Diary/DiaryResult";
 import ReportCountSelect from "../components/common/ReportCountSelect";
 import WarningOXSelect from "../components/common/WarningOXSelect";
 import DiarySearchQuery from "../types/DiarySearchQuery";
 import DatePicker from "../components/common/DatePicker";
+import Warning from "../components/Warning";
 
 const DiaryPage = () => {
+  /* 다이어리 검색 쿼리 기본값 */
   const defaultDiarySearchQuery: DiarySearchQuery = {
     nickname: "",
     kakaoId: "",
@@ -20,14 +22,17 @@ const DiaryPage = () => {
     postDateEnd: new Date(),
   };
 
+  /* 다이어리 검색 쿼리 state */
   const [diarySearchQuery, setDiarySearchQuery] = useState<DiarySearchQuery>(
     defaultDiarySearchQuery
   );
 
+  /* 다이어리 검색 쿼리 기본으로 초기화 */
   const resetDiarySearchQuery = () => {
     setDiarySearchQuery(defaultDiarySearchQuery);
   };
 
+  /* 다이어리 검색 쿼리 필드 업데이트 함수 */
   const updateDiarySearchField = <K extends keyof DiarySearchQuery>(
     field: K,
     value: DiarySearchQuery[K]
@@ -35,10 +40,9 @@ const DiaryPage = () => {
     setDiarySearchQuery({ ...diarySearchQuery, [field]: value });
   };
 
-  const [isWarningUnitOpen, setIsWarningUnitOpen] = useState(false);
+  /* 신고횟수 선택 모달 오픈여부 state */
+  const [isReportUnitOpen, setIsReportUnitOpen] = useState(false);
   const { data: diariesResult } = useGetDiaries();
-
-  console.log(diarySearchQuery.warning);
 
   return (
     <div>
@@ -84,14 +88,14 @@ const DiaryPage = () => {
               <TextLabel text="신고횟수" />
               <ReportCountSelect
                 toggleReportUnitOpen={() =>
-                  setIsWarningUnitOpen(!isWarningUnitOpen)
+                  setIsReportUnitOpen(!isReportUnitOpen)
                 }
                 reportNum={diarySearchQuery.reportNum}
                 setReportNum={(reportNum) =>
                   updateDiarySearchField("reportNum", reportNum)
                 }
                 reportUnit={diarySearchQuery.reportUnit}
-                isReportUnitOpen={isWarningUnitOpen}
+                isReportUnitOpen={isReportUnitOpen}
                 setReportUnit={(reportUnit) =>
                   updateDiarySearchField("reportUnit", reportUnit)
                 }
@@ -140,7 +144,11 @@ const DiaryPage = () => {
             </div>
           </div>
         </div>
-        {diariesResult && <DiariesResult Diaries={diariesResult} />}
+        {diariesResult ? (
+          <DiariesResult Diaries={diariesResult} />
+        ) : (
+          <Warning content="일기 목록이 존재하지 않습니다." />
+        )}
       </div>
     </div>
   );

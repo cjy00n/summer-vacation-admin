@@ -1,4 +1,4 @@
-import { Warning } from "../../types/DiarySearchQuery";
+import { Warning } from "../../types/Warning";
 
 interface WarningOXSelectProps {
   warning: Warning;

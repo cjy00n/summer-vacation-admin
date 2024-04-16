@@ -35,9 +35,6 @@ const DiaryPage = () => {
     setDiarySearchQuery({ ...diarySearchQuery, [field]: value });
   };
 
-  const [warningUnit, setWarningUnit] = useState<"이상" | "이하" | "동일">(
-    "이상"
-  );
   const [isWarningUnitOpen, setIsWarningUnitOpen] = useState(false);
   const { data: diariesResult } = useGetDiaries();
 
@@ -93,9 +90,11 @@ const DiaryPage = () => {
                 setReportNum={(reportNum) =>
                   updateDiarySearchField("reportNum", reportNum)
                 }
-                reportUnit={warningUnit}
+                reportUnit={diarySearchQuery.reportUnit}
                 isReportUnitOpen={isWarningUnitOpen}
-                setReportUnit={setWarningUnit}
+                setReportUnit={(reportUnit) =>
+                  updateDiarySearchField("reportUnit", reportUnit)
+                }
               />
             </div>
           </div>

@@ -1,6 +1,5 @@
 import { ReportUnit } from "./Report";
-
-export type Warning = "O" | "X";
+import { Warning } from "./Warning";
 
 export default interface DiarySearchQuery {
   nickname: string;

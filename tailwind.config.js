@@ -4,11 +4,17 @@ export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
   theme: {
     extend: {
+      width: {
+        long: "33vw",
+        middle: "15vw",
+        short: "6vw",
+      },
       colors: {
         "primary-orange": "#FF6D3C",
         "primary-white": "#F6F6F6",
         "primary-yellow": "#FFCE3C",
         "primary-green": "#27BE69",
+        "primary-blue": "0091FF",
         "error-red": "#DF0020",
         "gray-90": "#FDF8F4",
         "gray-80": "#E8E3E0",

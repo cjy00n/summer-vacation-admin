@@ -31,27 +31,19 @@ const UsersResult = ({ users }: UsersResultProps) => {
         </thead>
         <tbody>
           {users.map(
-            ({
-              user_id,
-              user_nickname,
-              user_kakaoId,
-              user_gender,
-              reportCount,
-              user_birth,
-              user_createdAt,
-            }) => (
-              <tr key={"user-list-" + user_id}>
+            ({ id, nickname, kakaoId, gender, waring, birth, createdAt }) => (
+              <tr key={"user-list-" + id}>
                 <td>
                   <input type="checkbox" />
                 </td>
-                <td>{user_id}</td>
-                <td>{user_nickname}</td>
-                <td>{user_kakaoId}</td>
-                <td>{user_gender}</td>
-                <td>{reportCount}</td>
-                <td>{user_birth}</td>
+                <td>{id}</td>
+                <td>{nickname}</td>
+                <td>{kakaoId}</td>
+                <td>{gender}</td>
+                <td>{waring}</td>
+                <td>{birth}</td>
                 <td>
-                  {format(user_createdAt, "yyyy. MM. dd", {
+                  {format(createdAt, "yyyy. MM. dd", {
                     locale: ko,
                   })}
                 </td>

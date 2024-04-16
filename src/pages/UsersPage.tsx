@@ -14,7 +14,7 @@ const UsersPage = () => {
   const defaultUserSearchQuery: UserSearchQuery = {
     nickname: "",
     kakaoId: "",
-    gender: "남성",
+    gender: "남자",
     reportNum: 0,
     reportUnit: "이상",
     birthEnd: null,

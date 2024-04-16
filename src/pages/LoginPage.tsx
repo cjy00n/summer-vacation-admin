@@ -9,6 +9,12 @@ const LoginPage = () => {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
 
+  const activeEnter = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleLogin();
+    }
+  };
+
   const handleLogin = async () => {
     try {
       const res = await postLogin({
@@ -51,6 +57,7 @@ const LoginPage = () => {
             className="px-1 rounded-md w-[18vw] h-8 border border-solid border-gray-60"
             value={inputPassword}
             onChange={(e) => setInputPassword(e.target.value)}
+            onKeyDown={(e) => activeEnter(e)}
           />
           <span className="w-[8vw]"></span>
         </div>

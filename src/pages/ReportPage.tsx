@@ -2,11 +2,12 @@ import { useState } from "react";
 import MainTitle from "../components/common/MainTitle";
 import TextLabel from "../components/common/TextLabel";
 import ReportResult from "../components/Report/ReportResult";
-import { useGetReports } from "../api/getReports";
+import { useGetAllReports } from "../api/getAllReports";
 import ReportCountSelect from "../components/common/ReportCountSelect";
 import WarningOXSelect from "../components/common/WarningOXSelect";
 import ReportSearchQuery from "../types/ReportSearchQuery";
 import DatePicker from "../components/common/DatePicker";
+import Warning from "../components/Warning";
 
 const ReportPage = () => {
   const defaultReportSearchQuery: ReportSearchQuery = {
@@ -36,7 +37,7 @@ const ReportPage = () => {
   };
 
   const [isReportUnitOpen, setIsReportUnitOpen] = useState(false);
-  const { data: reportsResult } = useGetReports();
+  const { data: reportsResult } = useGetAllReports();
 
   return (
     <div>
@@ -141,7 +142,11 @@ const ReportPage = () => {
             </div>
           </div>
         </div>
-        {reportsResult && <ReportResult reports={reportsResult} />}
+        {reportsResult ? (
+          <ReportResult reports={reportsResult} />
+        ) : (
+          <Warning content="신고 목록이 존재하지 않습니다." />
+        )}
       </div>
     </div>
   );

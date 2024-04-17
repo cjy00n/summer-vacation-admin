@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetAllUsers } from "../api/getAllUsers";
 import MainTitle from "../components/common/MainTitle";
 import TextLabel from "../components/common/TextLabel";
@@ -10,8 +10,13 @@ import { useGetUsersByQuery } from "../api/getUsersByQuery";
 import DatePicker from "../components/common/DatePicker";
 import Warning from "../components/Warning";
 import Loading from "../components/Loading";
+import { useSearchParams } from "react-router-dom";
+import Pagination from "../components/common/Pagination";
 
 const UsersPage = () => {
+  const [searchParams] = useSearchParams();
+  const currentPage = parseInt(searchParams.get("page") ?? "1");
+
   /* 유저 검색 쿼리 기본값 */
   const defaultUserSearchQuery: UserSearchQuery = {
     nickname: "",
@@ -45,7 +50,12 @@ const UsersPage = () => {
 
   /* 신고횟수 선택 모달 오픈여부 state */
   const [isReportUnitOpen, setIsReportUnitOpen] = useState(false);
-  const { data: usersResult, isLoading: usersLoading } = useGetAllUsers();
+
+  const {
+    data: usersResult,
+    isLoading: usersLoading,
+    refetch: usersRefetch,
+  } = useGetAllUsers(currentPage);
   const { data: usersResultByQuery, refetch } =
     useGetUsersByQuery(userSearchQuery);
 
@@ -53,6 +63,10 @@ const UsersPage = () => {
     refetch();
     console.log(usersResultByQuery);
   };
+
+  useEffect(() => {
+    usersRefetch();
+  }, [currentPage, usersRefetch]);
 
   return (
     <div>
@@ -168,7 +182,13 @@ const UsersPage = () => {
         {usersLoading ? (
           <Loading />
         ) : usersResult ? (
-          <UsersResult users={usersResult} />
+          <>
+            <UsersResult users={usersResult.data} />
+            <Pagination
+              currentPage={currentPage}
+              lastPage={usersResult.pageMeta.last_page}
+            />
+          </>
         ) : (
           <Warning content="회원 목록이 존재하지 않습니다." />
         )}

@@ -9,6 +9,31 @@ export default {
         middle: "15vw",
         short: "6vw",
       },
+      keyframes: {
+        fadein: {
+          "0%": {
+            opacity: "0.5",
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        fadeout: {
+          "0%": {
+            opacity: "1",
+          },
+          "100%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+        },
+      },
+      animation: {
+        fadein: "fadein 0.5s",
+        fadeout: "fadeout 1s",
+      },
       colors: {
         "primary-orange": "#FF6D3C",
         "primary-white": "#F6F6F6",

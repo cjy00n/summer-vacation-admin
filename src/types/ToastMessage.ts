@@ -3,4 +3,5 @@ export default interface ToastMessage {
   content: string;
   type?: "default" | "success" | "error";
   timeout?: number;
+  isRemoving?: boolean;
 }

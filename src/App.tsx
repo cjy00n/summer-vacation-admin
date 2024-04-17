@@ -56,7 +56,7 @@ function App() {
             <div className="flex-col overflow-y-hidden">
               <ToastMessageContainer />
               {el.haveHeader === false && el.haveSideBar === false ? (
-                <div className="w-full h-dvh">{el.element}</div>
+                <div className="w-full h-dvh h-max-dvh ">{el.element}</div>
               ) : (
                 <>
                   <Header />

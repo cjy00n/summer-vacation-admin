@@ -4,9 +4,11 @@ import ContestList from "../components/Feed/ContestList";
 import MainTitle from "../components/common/MainTitle";
 import SubTitle from "../components/common/SubTitle";
 import { useGetContest } from "../api/getContest";
+import Warning from "../components/Warning";
+import Loading from "../components/Loading";
 
 const FeedPage = () => {
-  const { data: contestList } = useGetContest({
+  const { data: contestList, isLoading: contentLoading } = useGetContest({
     year: 2024,
     month: 3,
     week: 2,
@@ -36,7 +38,13 @@ const FeedPage = () => {
         </div>
       </div>
       <MainTitle title="수상목록" />
-      {contestList && <ContestList contestList={contestList} />}
+      {contentLoading ? (
+        <Loading />
+      ) : contestList ? (
+        <ContestList contestList={contestList} />
+      ) : (
+        <Warning content="해당 기간의 사생대회 기록이 없습니다." />
+      )}
     </div>
   );
 };

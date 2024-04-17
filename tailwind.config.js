@@ -29,10 +29,19 @@ export default {
             transform: "translateY(-10px)",
           },
         },
+        spin: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
       },
       animation: {
         fadein: "fadein 0.5s",
         fadeout: "fadeout 1s",
+        "spin-slow": "spin 2s linear infinite",
       },
       colors: {
         "primary-orange": "#FF6D3C",

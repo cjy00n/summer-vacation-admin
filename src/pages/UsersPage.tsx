@@ -9,6 +9,7 @@ import UserSearchQuery from "../types/UserSearchQuery";
 import { useGetUsersByQuery } from "../api/getUsersByQuery";
 import DatePicker from "../components/common/DatePicker";
 import Warning from "../components/Warning";
+import Loading from "../components/Loading";
 
 const UsersPage = () => {
   /* 유저 검색 쿼리 기본값 */
@@ -44,7 +45,7 @@ const UsersPage = () => {
 
   /* 신고횟수 선택 모달 오픈여부 state */
   const [isReportUnitOpen, setIsReportUnitOpen] = useState(false);
-  const { data: usersResult } = useGetAllUsers();
+  const { data: usersResult, isLoading: usersLoading } = useGetAllUsers();
   const { data: usersResultByQuery, refetch } =
     useGetUsersByQuery(userSearchQuery);
 
@@ -164,7 +165,9 @@ const UsersPage = () => {
             </div>
           </div>
         </div>
-        {usersResult ? (
+        {usersLoading ? (
+          <Loading />
+        ) : usersResult ? (
           <UsersResult users={usersResult} />
         ) : (
           <Warning content="회원 목록이 존재하지 않습니다." />

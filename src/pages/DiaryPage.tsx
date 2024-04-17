@@ -8,6 +8,7 @@ import WarningOXSelect from "../components/common/WarningOXSelect";
 import DiarySearchQuery from "../types/DiarySearchQuery";
 import DatePicker from "../components/common/DatePicker";
 import Warning from "../components/Warning";
+import Loading from "../components/Loading";
 
 const DiaryPage = () => {
   /* 다이어리 검색 쿼리 기본값 */
@@ -42,7 +43,7 @@ const DiaryPage = () => {
 
   /* 신고횟수 선택 모달 오픈여부 state */
   const [isReportUnitOpen, setIsReportUnitOpen] = useState(false);
-  const { data: diariesResult } = useGetDiaries();
+  const { data: diariesResult, isLoading: diariesLoading } = useGetDiaries();
 
   return (
     <div>
@@ -144,7 +145,9 @@ const DiaryPage = () => {
             </div>
           </div>
         </div>
-        {diariesResult ? (
+        {diariesLoading ? (
+          <Loading />
+        ) : diariesResult ? (
           <DiariesResult Diaries={diariesResult} />
         ) : (
           <Warning content="일기 목록이 존재하지 않습니다." />

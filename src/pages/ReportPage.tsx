@@ -8,6 +8,7 @@ import WarningOXSelect from "../components/common/WarningOXSelect";
 import ReportSearchQuery from "../types/ReportSearchQuery";
 import DatePicker from "../components/common/DatePicker";
 import Warning from "../components/Warning";
+import Loading from "../components/Loading";
 
 const ReportPage = () => {
   const defaultReportSearchQuery: ReportSearchQuery = {
@@ -37,7 +38,7 @@ const ReportPage = () => {
   };
 
   const [isReportUnitOpen, setIsReportUnitOpen] = useState(false);
-  const { data: reportsResult } = useGetAllReports();
+  const { data: reportsResult, isLoading: reportsLoading } = useGetAllReports();
 
   return (
     <div>
@@ -142,7 +143,9 @@ const ReportPage = () => {
             </div>
           </div>
         </div>
-        {reportsResult ? (
+        {reportsLoading ? (
+          <Loading />
+        ) : reportsResult ? (
           <ReportResult reports={reportsResult} />
         ) : (
           <Warning content="신고 목록이 존재하지 않습니다." />

@@ -1,3 +1,5 @@
+import User from "./User";
+
 export type Emotion = "괜찮아요" | "좋아요" | "기뻐요" | "화나요" | "슬퍼요";
 export type Weather = "맑음" | "비" | "눈" | "흐림" | "천둥";
 
@@ -15,4 +17,5 @@ export default interface Diary {
   kakaoId: string;
   warning: boolean;
   waringCount: number;
+  user: User;
 }

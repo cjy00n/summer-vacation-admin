@@ -29,8 +29,8 @@ const DiariesResult = ({ Diaries }: DiariesResultProps) => {
                 <input type="checkbox" />
               </td>
               <td>{diary.id}</td>
-              <td>{diary.nickname}</td>
-              <td>{diary.kakaoId}</td>
+              <td>{diary.user.nickname ?? "-"}</td>
+              <td>{diary.user.kakaoId}</td>
               <td>{diary.warning ? "O" : "X"}</td>
               <td>{diary.waringCount ?? 0}회</td>
               <td>

@@ -6,7 +6,7 @@ import Diary from "../types/Diary";
 export const getAllDiaries = async (page: number) => {
   try {
     const response = await authInstance.get<{ data: Diary[]; meta: PageMeta }>(
-      "diary?field=MoreThanOrEqual&waringCount=0&page=" + page
+      "diary/info?page=" + page
     );
 
     if (response.data) {

@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { useGetDiaries } from "../api/getDiaries";
+import { useEffect, useState } from "react";
+import { useGetAllDiaries } from "../api/getAllDiaries";
+import { useSearchParams } from "react-router-dom";
 import MainTitle from "../components/common/MainTitle";
 import TextLabel from "../components/common/TextLabel";
 import DiariesResult from "../components/Diary/DiaryResult";
@@ -9,8 +10,13 @@ import DiarySearchQuery from "../types/DiarySearchQuery";
 import DatePicker from "../components/common/DatePicker";
 import Warning from "../components/Warning";
 import Loading from "../components/Loading";
+import Pagination from "../components/common/Pagination";
 
 const DiaryPage = () => {
+  /* 페이지 params */
+  const [searchParams] = useSearchParams();
+  const currentPage = parseInt(searchParams.get("page") ?? "1");
+
   /* 다이어리 검색 쿼리 기본값 */
   const defaultDiarySearchQuery: DiarySearchQuery = {
     nickname: "",
@@ -43,7 +49,18 @@ const DiaryPage = () => {
 
   /* 신고횟수 선택 모달 오픈여부 state */
   const [isReportUnitOpen, setIsReportUnitOpen] = useState(false);
-  const { data: diariesResult, isLoading: diariesLoading } = useGetDiaries();
+
+  /* 전체 다이어리 데이터 GET */
+  const {
+    data: diariesResult,
+    refetch: diariesRefetch,
+    isLoading: diariesLoading,
+  } = useGetAllDiaries(currentPage);
+
+  /* 현재 페이지 바뀔 떄마다 refetch */
+  useEffect(() => {
+    diariesRefetch();
+  }, [currentPage, diariesRefetch]);
 
   return (
     <div>
@@ -148,7 +165,13 @@ const DiaryPage = () => {
         {diariesLoading ? (
           <Loading />
         ) : diariesResult ? (
-          <DiariesResult Diaries={diariesResult} />
+          <>
+            <DiariesResult Diaries={diariesResult.data} />
+            <Pagination
+              currentPage={currentPage}
+              lastPage={diariesResult.pageMeta.last_page}
+            />
+          </>
         ) : (
           <Warning content="일기 목록이 존재하지 않습니다." />
         )}

@@ -14,5 +14,5 @@ export default interface Diary {
   nickname: string;
   kakaoId: string;
   warning: boolean;
-  reportNum: number;
+  waringCount: number;
 }

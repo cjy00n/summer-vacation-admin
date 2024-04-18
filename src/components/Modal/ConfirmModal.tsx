@@ -23,7 +23,7 @@ const ConfirmModal = ({
 }: ConfirmModalProps) => {
   return (
     <ModalContainer open={open} toggleOpen={toggleOpen}>
-      <div className="w-96 h-48 px-5 py-4 justify-between">
+      <div className="w-96 h-48 px-5 py-4 justify-between items-center">
         <div className="flex justify-between w-full">
           <span className="font-bold text-lg">{title}</span>
           <button onClick={toggleOpen}>

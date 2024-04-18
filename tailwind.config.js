@@ -68,7 +68,6 @@ export default {
           "flex-direction": "column",
           "background-color": "white",
           position: "absolute",
-          "align-items": "center",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",

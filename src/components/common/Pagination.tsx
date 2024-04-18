@@ -9,7 +9,7 @@ interface PaginationProps {
 const Pagination = ({ lastPage, currentPage }: PaginationProps) => {
   const [, setSearchParams] = useSearchParams();
 
-  const PAGE_COUNT = 5;
+  const PAGE_COUNT = 5; // 한번에 노출하는 페이지 수
   const handlePage = (page: number) => {
     if (page < 1) page = 1;
     else if (page > lastPage) page = lastPage;
@@ -32,7 +32,7 @@ const Pagination = ({ lastPage, currentPage }: PaginationProps) => {
         .fill(0)
         .map((_, i) => (
           <button
-            key={"users-page-" + i}
+            key={"page-button" + i}
             onClick={() => handlePage(i + 1)}
             className={`h-6 w-6 ${
               currentPage === i + 1

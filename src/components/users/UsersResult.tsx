@@ -30,11 +30,11 @@ const UsersResult = ({ users }: UsersResultProps) => {
                   <input type="checkbox" />
                 </td>
                 <td>{id}</td>
-                <td>{nickname}</td>
+                <td>{nickname ?? "-"}</td>
                 <td>{kakaoId}</td>
-                <td>{gender}</td>
+                <td>{gender ?? "-"}</td>
                 <td>{waring}회</td>
-                <td>{birth}</td>
+                <td>{birth ?? "-"}</td>
                 <td>
                   {format(createdAt, "yyyy. MM. dd", {
                     locale: ko,

@@ -85,9 +85,6 @@ td {
 }
 
 /* react-date-picker styling */
-.react-datepicker__input-container input {
-  @apply w-[15vw];
-}
 
 .react-datepicker-ignore-onclickoutside {
   @apply border-primary-blue border border-solid !important;

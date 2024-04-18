@@ -10,7 +10,7 @@ import DiarySearchQuery from "../types/DiarySearchQuery";
 import DatePicker from "../components/common/DatePicker";
 import Warning from "../components/Warning";
 import Loading from "../components/Loading";
-import Pagination from "../components/common/Pagination";
+import Pagination from "../components/common/Pagination/Pagination";
 
 const DiaryPage = () => {
   /* 페이지 params */

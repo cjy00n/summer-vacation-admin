@@ -11,7 +11,7 @@ import DatePicker from "../components/common/DatePicker";
 import Warning from "../components/Warning";
 import Loading from "../components/Loading";
 import { useSearchParams } from "react-router-dom";
-import Pagination from "../components/common/Pagination";
+import Pagination from "../components/common/Pagination/Pagination";
 
 const UsersPage = () => {
   const [searchParams] = useSearchParams();

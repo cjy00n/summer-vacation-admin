@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ConfirmModal from "../common/ConfirmModal";
+import ConfirmModal from "../Modal/ConfirmModal";
 
 const BannerSection = () => {
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);

@@ -51,19 +51,24 @@ const UsersPage = () => {
   /* 신고횟수 선택 모달 오픈여부 state */
   const [isReportUnitOpen, setIsReportUnitOpen] = useState(false);
 
+  /* 전체 유저 데이터 GET */
   const {
     data: usersResult,
     isLoading: usersLoading,
     refetch: usersRefetch,
   } = useGetAllUsers(currentPage);
+
+  /* 검색 및 조회 쿼리에 따른 유저 데이터 GET */
   const { data: usersResultByQuery, refetch } =
     useGetUsersByQuery(userSearchQuery);
 
+  /* 검색 버튼 클릭 시 변경된 쿼리값으로 유저 데이터 refetch */
   const searchUsersByQuery = () => {
     refetch();
     console.log(usersResultByQuery);
   };
 
+  /* 현재 페이지값 바뀔 때마다 refetch */
   useEffect(() => {
     usersRefetch();
   }, [currentPage, usersRefetch]);

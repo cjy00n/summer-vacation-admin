@@ -17,7 +17,7 @@ const UsersResult = ({ users }: UsersResultProps) => {
             <th>닉네임</th>
             <th>카카오ID</th>
             <th>성별</th>
-            <th>경고누적</th>
+            <th>경고횟수</th>
             <th>출생년도</th>
             <th>가입일</th>
           </tr>
@@ -33,7 +33,7 @@ const UsersResult = ({ users }: UsersResultProps) => {
                 <td>{nickname}</td>
                 <td>{kakaoId}</td>
                 <td>{gender}</td>
-                <td>{waring}</td>
+                <td>{waring}회</td>
                 <td>{birth}</td>
                 <td>
                   {format(createdAt, "yyyy. MM. dd", {

@@ -22,7 +22,6 @@ const CustomDropDown = ({
     setValue(value);
   };
 
-  console.log(defaultValue);
   return (
     <div
       className="border border-black border-solid w-[24vw] py-1 my-1 relative flex flex-col h-8"

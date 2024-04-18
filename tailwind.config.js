@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from "tailwindcss/plugin";
 
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
@@ -59,4 +60,24 @@ export default {
       },
     },
   },
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        ".modal": {
+          display: "flex",
+          "flex-direction": "column",
+          "background-color": "white",
+          position: "absolute",
+          "align-items": "center",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          "box-shadow":
+            "0 10px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.05)",
+          "border-radius": "0.375rem",
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    }),
+  ],
 };
